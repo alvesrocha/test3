@@ -2,18 +2,18 @@ package org.medical.data.controller;
 
 import java.security.Principal;
 
-import org.medical.data.domain.source.User;
+import org.medical.data.domain.source.ModUser;
 import org.medical.data.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.RestController;
 
 @SpringBootApplication
-@Controller
+@RestController
 public class UserController {
 
 	@Autowired
@@ -27,7 +27,7 @@ public class UserController {
 	
 	@RequestMapping(value = "/register", method = RequestMethod.POST)
 	@ResponseBody
-	public User register(@RequestBody User user) {
+	public ModUser register(@RequestBody ModUser user) {
 		return userService.saveUser(user);
 	}
 }

@@ -8,5 +8,8 @@ import javax.persistence.*;
 @Table(name="mod_staff")
 public class ModStaff extends ModStaffGeneric {
 
+	public boolean isActivated() {
+		return "y".equals(getActivated());
+	}
 
 }

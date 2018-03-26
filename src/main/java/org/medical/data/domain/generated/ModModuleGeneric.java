@@ -96,12 +96,12 @@ public class ModModuleGeneric implements Serializable {
 	//bi-directional many-to-one association to ModUser
 	@ManyToOne(fetch=FetchType.LAZY)
 	@JoinColumn(name="moduleadmin")
-	private ModUser modUser1;
+	private ModUser moduleadmin;
 
 	//bi-directional many-to-one association to ModUser
 	@ManyToOne(fetch=FetchType.LAZY)
 	@JoinColumn(name="modifiedby")
-	private ModUser modUser2;
+	private ModUser modifiedby;
 
 	//bi-directional many-to-one association to ModModulelang
 	@OneToMany(mappedBy="modModule")
@@ -294,20 +294,20 @@ public class ModModuleGeneric implements Serializable {
 		this.modPermissiongroup = modPermissiongroup;
 	}
 
-	public ModUser getModUser1() {
-		return this.modUser1;
+	public ModUser getModuleadmin() {
+		return moduleadmin;
 	}
 
-	public void setModUser1(ModUser modUser1) {
-		this.modUser1 = modUser1;
+	public void setModuleadmin(ModUser moduleadmin) {
+		this.moduleadmin = moduleadmin;
 	}
 
-	public ModUser getModUser2() {
-		return this.modUser2;
+	public ModUser getModifiedby() {
+		return modifiedby;
 	}
 
-	public void setModUser2(ModUser modUser2) {
-		this.modUser2 = modUser2;
+	public void setModifiedby(ModUser modifiedby) {
+		this.modifiedby = modifiedby;
 	}
 
 	public List<ModModulelang> getModModulelangs() {

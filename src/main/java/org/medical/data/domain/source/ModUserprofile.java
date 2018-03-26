@@ -8,5 +8,11 @@ import javax.persistence.*;
 @Table(name="mod_userprofile")
 public class ModUserprofile extends ModUserprofileGeneric {
 
-
+	public boolean isEnabled() {
+		return "y".equals(getEnabled());
+	}
+	
+	public boolean isValid() {
+		return "y".equals(getValid());
+	}
 }

@@ -13,7 +13,9 @@ import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.stereotype.Service;
 
+@Service
 public class UserServiceCustom implements UserDetailsService {
 
 	private final UserRepository userRepository;
@@ -31,13 +33,13 @@ public class UserServiceCustom implements UserDetailsService {
 			org.springframework.security.core.userdetails.User userDetails = new org.springframework.security.core.userdetails.User(
 					username, user.getPw(), true, user.isExpired(), false, !user.isLocked(), authorities);
 			if (!user.isLocked() && user.withProfiles()) {
-				for (ModStaff staff : user.getModStaffs()) {
+				for (ModStaff staff : user.getModStaffList()) {
 					if (staff.isActivated()) {
-						for (ModUserprofile userProfile : staff.getModUserprofiles()) {
+						for (ModUserprofile userProfile : staff.getModUserprofileList()) {
 							if (userProfile.isValid() && userProfile.isEnabled()) {
 								for (ModProfilefunction profileFunction : userProfile.getModProfile()
-										.getModProfilefunctions()) {
-									authorities.add(new SimpleGrantedAuthority("dept_" + staff.getModDept().getDeptid()
+										.getModProfilefunctionList()) {
+									authorities.add(new SimpleGrantedAuthority("dept_" + staff.getDeptid().getDeptid()
 											+ "_" + profileFunction.getModFunction().getInternalfunctionname()));
 								}
 							}
@@ -47,7 +49,7 @@ public class UserServiceCustom implements UserDetailsService {
 			}
 			return userDetails;
 		}
-		return new org.springframework.security.core.userdetails.User(username, user.getPw(), authorities);
+		return new org.springframework.security.core.userdetails.User(username, "", authorities);
 	}
 
 }

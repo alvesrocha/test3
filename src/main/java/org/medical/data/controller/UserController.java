@@ -1,11 +1,13 @@
 package org.medical.data.controller;
 
 import java.security.Principal;
+import java.util.List;
 
 import org.medical.data.domain.source.ModUser;
 import org.medical.data.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -14,6 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @SpringBootApplication
 @RestController
+@RequestMapping("/users")
 public class UserController {
 
 	@Autowired
@@ -25,9 +28,19 @@ public class UserController {
 		return user;
 	}
 	
-	@RequestMapping(value = "/register", method = RequestMethod.POST)
-	@ResponseBody
-	public ModUser register(@RequestBody ModUser user) {
-		return userService.saveUser(user);
-	}
+	@RequestMapping(value="/user", method = RequestMethod.GET)
+    public List<ModUser> listUser(){
+        return userService.findAll();
+    }
+
+    @RequestMapping(value = "/user", method = RequestMethod.POST)
+    public ModUser create(@RequestBody ModUser user){
+        return userService.save(user);
+    }
+
+    @RequestMapping(value = "/user/{id}", method = RequestMethod.DELETE)
+    public String delete(@PathVariable(value = "id") Long id){
+        userService.delete(id);
+        return "success";
+    }
 }

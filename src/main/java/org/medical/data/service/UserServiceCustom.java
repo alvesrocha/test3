@@ -3,6 +3,7 @@ package org.medical.data.service;
 import java.util.HashSet;
 import java.util.Set;
 
+import org.medical.data.domain.UserCustom;
 import org.medical.data.domain.source.ModProfilefunction;
 import org.medical.data.domain.source.ModStaff;
 import org.medical.data.domain.source.ModUser;
@@ -30,8 +31,9 @@ public class UserServiceCustom implements UserDetailsService {
 		ModUser user = userRepository.findByUserloginid(username);
 		Set<GrantedAuthority> authorities = new HashSet<GrantedAuthority>();
 		if (user != null) {
-			org.springframework.security.core.userdetails.User userDetails = new org.springframework.security.core.userdetails.User(
-					username, user.getPw(), true, user.isExpired(), false, !user.isLocked(), authorities);
+			UserCustom userDetails = new UserCustom(
+					username, user.getPw(), true, !user.isExpired(), false, !user.isLocked(), authorities);
+			userDetails.setSalt(user.getSalt());
 			if (!user.isLocked() && user.withProfiles()) {
 				for (ModStaff staff : user.getModStaffList()) {
 					if (staff.isActivated()) {
@@ -49,7 +51,7 @@ public class UserServiceCustom implements UserDetailsService {
 			}
 			return userDetails;
 		}
-		return new org.springframework.security.core.userdetails.User(username, "", authorities);
+		return new UserCustom(username, "", authorities);
 	}
 
 }

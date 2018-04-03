@@ -36,7 +36,7 @@ public class SecurityConfig {
 	
 	@Bean
 	public PasswordEncoder passwordEncoder() {
-		return new ShaPasswordEncoder(256);
+		return new ShaPasswordEncoderCustom(256);
 	}
 	
     @Bean

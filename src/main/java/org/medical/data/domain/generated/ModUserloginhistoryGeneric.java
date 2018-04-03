@@ -51,8 +51,7 @@ public class ModUserloginhistoryGeneric implements Serializable {
     @Column(name = "logindate")
     @Temporal(TemporalType.TIMESTAMP)
     private Date logindate;
-    @Lob
-    @Column(name = "loginbrowser")
+    @Column(name = "loginbrowser",columnDefinition = "text")
     private String loginbrowser;
 
     public ModUserloginhistoryGeneric() {

@@ -49,8 +49,7 @@ public class ModModulejobsservletGeneric implements Serializable {
     @Column(name = "jobfinishdate")
     @Temporal(TemporalType.TIMESTAMP)
     private Date jobfinishdate;
-    @Lob
-    @Column(name = "errortext")
+    @Column(name = "errortext",columnDefinition = "text")
     private String errortext;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "jobid")
     private List<ModModulejobsjson> modModulejobsjsonList;

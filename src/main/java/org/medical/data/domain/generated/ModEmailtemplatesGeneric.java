@@ -6,13 +6,14 @@
 package org.medical.data.domain.generated;
 
 import java.io.Serializable;
+
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.EmbeddedId;
-import javax.persistence.Lob;
 import javax.persistence.MappedSuperclass;
 import javax.persistence.Table;
-import org.medical.data.domain.source.*;
+
+import org.medical.data.domain.source.ModEmailtemplatesPK;
 
 /**
  *
@@ -26,8 +27,7 @@ public class ModEmailtemplatesGeneric implements Serializable {
     @EmbeddedId
     protected ModEmailtemplatesPK modEmailtemplatesPK;
     @Basic(optional = false)
-    @Lob
-    @Column(name = "template")
+    @Column(name = "template",columnDefinition = "text")
     private String template;
     @Column(name = "subject")
     private String subject;

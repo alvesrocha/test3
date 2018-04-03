@@ -48,8 +48,7 @@ public class ModExportServerfileMatrixGeneric implements Serializable {
     @Basic(optional = false)
     @Column(name = "COLINDEX")
     private int colindex;
-    @Lob
-    @Column(name = "MATRIXCELLDATA")
+    @Column(name = "MATRIXCELLDATA",columnDefinition = "text")
     private String matrixcelldata;
     @Column(name = "CREATEDT")
     @Temporal(TemporalType.TIMESTAMP)

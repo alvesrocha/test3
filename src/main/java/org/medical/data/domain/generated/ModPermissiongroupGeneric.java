@@ -40,7 +40,7 @@ public class ModPermissiongroupGeneric implements Serializable {
     @Column(name = "groupname")
     private String groupname;
     @Basic(optional = false)
-    @Column(name = "grouptype")
+    @Column(name = "grouptype",columnDefinition="ENUM('U','D','C','M','S')")
     private String grouptype;
     @Basic(optional = false)
     @Column(name = "created")

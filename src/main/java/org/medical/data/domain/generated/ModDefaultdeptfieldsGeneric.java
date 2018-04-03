@@ -42,24 +42,25 @@ public class ModDefaultdeptfieldsGeneric implements Serializable {
     @Column(name = "lengthmax")
     private int lengthmax;
     @Basic(optional = false)
-    @Column(name = "fieldtype")
+    @Column(name = "fieldtype",columnDefinition="ENUM('date','number','alpha','alphanumeric','all','multiplechoice','dropdown','checkbox','radiobutton')")
     private String fieldtype;
-    @Column(name = "fixedfieldtype")
+    @Basic(optional = false)
+    @Column(name = "fixedfieldtype",columnDefinition="ENUM('none','name','weightadaption')")
     private String fixedfieldtype;
     @Basic(optional = false)
     @Column(name = "additionalchar")
     private String additionalchar;
     @Basic(optional = false)
-    @Column(name = "activated")
+    @Column(name = "activated",columnDefinition="ENUM('y','n')")
     private String activated;
     @Basic(optional = false)
-    @Column(name = "editable")
+    @Column(name = "editable",columnDefinition="ENUM('y','n')")
     private String editable;
     @Basic(optional = false)
-    @Column(name = "searchmask")
+    @Column(name = "searchmask",columnDefinition="ENUM('y','n')")
     private String searchmask;
     @Basic(optional = false)
-    @Column(name = "usetime")
+    @Column(name = "usetime",columnDefinition="ENUM('y','n')")
     private String usetime;
     @Column(name = "validationexp")
     private String validationexp;

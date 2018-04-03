@@ -8,6 +8,7 @@ package org.medical.data.domain.generated;
 import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
+
 import javax.persistence.Basic;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -23,7 +24,15 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
-import org.medical.data.domain.source.*;
+
+import org.medical.data.domain.source.ModClinicfields;
+import org.medical.data.domain.source.ModCountry;
+import org.medical.data.domain.source.ModDept;
+import org.medical.data.domain.source.ModLang;
+import org.medical.data.domain.source.ModNewsletter;
+import org.medical.data.domain.source.ModPatientfields;
+import org.medical.data.domain.source.ModPermissiongroup;
+import org.medical.data.domain.source.ModUser;
 
 /**
  *
@@ -50,19 +59,19 @@ public class ModClinicGeneric implements Serializable {
     @Temporal(TemporalType.DATE)
     private Date modified;
     @Basic(optional = false)
-    @Column(name = "patientownerpolicy")
+    @Column(name = "patientownerpolicy",columnDefinition="ENUM('M','C','D','U')")
     private String patientownerpolicy;
     @Basic(optional = false)
-    @Column(name = "patientdeletepolicy")
+    @Column(name = "patientdeletepolicy",columnDefinition="ENUM('M','C','D','U')")
     private String patientdeletepolicy;
     @Basic(optional = false)
-    @Column(name = "patientwritepolicy")
+    @Column(name = "patientwritepolicy",columnDefinition="ENUM('M','C','D','U')")
     private String patientwritepolicy;
     @Basic(optional = false)
-    @Column(name = "patientreadpolicy")
+    @Column(name = "patientreadpolicy",columnDefinition="ENUM('M','C','D','U')")
     private String patientreadpolicy;
     @Basic(optional = false)
-    @Column(name = "patientlistpolicy")
+    @Column(name = "patientlistpolicy",columnDefinition="ENUM('M','C','D','U')")
     private String patientlistpolicy;
     @Basic(optional = false)
     @Column(name = "usecasenumber")

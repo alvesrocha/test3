@@ -33,7 +33,7 @@ public class ModModulejobsjsonGeneric implements Serializable {
     @Column(name = "jsondataid")
     private Integer jsondataid;
     @Lob
-    @Column(name = "jsondata")
+    @Column(name = "jsondata",columnDefinition = "text")
     private String jsondata;
     @JoinColumn(name = "jobid", referencedColumnName = "jobid")
     @ManyToOne(optional = false)

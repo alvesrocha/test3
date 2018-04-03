@@ -38,8 +38,7 @@ public class ModExportMatrixmappedvaluesGeneric implements Serializable {
     private long matrixcellid;
     @Column(name = "SUBCOLINDEX")
     private Integer subcolindex;
-    @Lob
-    @Column(name = "MATRIXCELLDATA")
+    @Column(name = "MATRIXCELLDATA",columnDefinition = "text")
     private String matrixcelldata;
     @Column(name = "CREATEDT")
     @Temporal(TemporalType.TIMESTAMP)

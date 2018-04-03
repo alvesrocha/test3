@@ -40,7 +40,7 @@ public class ModPatientGeneric implements Serializable {
     @Column(name = "ssn")
     private String ssn;
     @Basic(optional = false)
-    @Column(name = "gender")
+    @Column(name = "gender",columnDefinition="ENUM('m','f','u')")
     private String gender;
     @Basic(optional = false)
     @Column(name = "dateofbirth")

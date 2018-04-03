@@ -64,19 +64,19 @@ public class ModModuleGeneric implements Serializable {
     @Column(name = "modulepublickey")
     private String modulepublickey;
     @Basic(optional = false)
-    @Column(name = "patientownerpolicy")
+    @Column(name = "patientownerpolicy",columnDefinition="ENUM('M','C','D','U')")
     private String patientownerpolicy;
     @Basic(optional = false)
-    @Column(name = "patientdeletepolicy")
+    @Column(name = "patientdeletepolicy",columnDefinition="ENUM('M','C','D','U')")
     private String patientdeletepolicy;
     @Basic(optional = false)
-    @Column(name = "patientwritepolicy")
+    @Column(name = "patientwritepolicy",columnDefinition="ENUM('M','C','D','U')")
     private String patientwritepolicy;
     @Basic(optional = false)
-    @Column(name = "patientreadpolicy")
+    @Column(name = "patientreadpolicy",columnDefinition="ENUM('M','C','D','U')")
     private String patientreadpolicy;
     @Basic(optional = false)
-    @Column(name = "patientlistpolicy")
+    @Column(name = "patientlistpolicy",columnDefinition="ENUM('M','C','D','U')")
     private String patientlistpolicy;
     @Basic(optional = false)
     @Column(name = "memdocurl")

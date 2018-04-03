@@ -41,7 +41,7 @@ public class ModStafffieldsGeneric implements Serializable {
     @Column(name = "lengthmax")
     private int lengthmax;
     @Basic(optional = false)
-    @Column(name = "fieldtype")
+    @Column(name = "fieldtype",columnDefinition="ENUM('date','number','alpha','alphanumeric','all','multiplechoice')")
     private String fieldtype;
     @Basic(optional = false)
     @Column(name = "additionalchar")
@@ -54,19 +54,19 @@ public class ModStafffieldsGeneric implements Serializable {
     @Basic(optional = false)
     @Column(name = "fieldposition")
     private int fieldposition;
-    @Column(name = "fixedfieldtype")
+    @Column(name = "fixedfieldtype",columnDefinition="ENUM('none','phone1','phone2','academicrank','title','externaluserid')")
     private String fixedfieldtype;
     @Basic(optional = false)
-    @Column(name = "activated")
+    @Column(name = "activated",columnDefinition="ENUM('y','n')")
     private String activated;
     @Basic(optional = false)
-    @Column(name = "editable")
+    @Column(name = "editable",columnDefinition="ENUM('y','n')")
     private String editable;
     @Basic(optional = false)
-    @Column(name = "searchmask")
+    @Column(name = "searchmask",columnDefinition="ENUM('y','n')")
     private String searchmask;
     @Basic(optional = false)
-    @Column(name = "allowvalidationdeactivation")
+    @Column(name = "allowvalidationdeactivation",columnDefinition="ENUM('y','n')")
     private String allowvalidationdeactivation;
     @Basic(optional = false)
     @Column(name = "groupnumber")
@@ -75,10 +75,10 @@ public class ModStafffieldsGeneric implements Serializable {
     @Column(name = "columnspan")
     private int columnspan;
     @Basic(optional = false)
-    @Column(name = "readonly")
+    @Column(name = "readonly",columnDefinition="ENUM('y','n')")
     private String readonly;
     @Basic(optional = false)
-    @Column(name = "autocomplete")
+    @Column(name = "autocomplete",columnDefinition="ENUM('y','n')")
     private String autocomplete;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "modStafffields")
     private List<ModStafffieldlang> modStafffieldlangList;

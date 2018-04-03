@@ -63,7 +63,7 @@ public class ModUserGeneric implements Serializable {
     @Temporal(TemporalType.DATE)
     private Date expiration;
     @Basic(optional = false)
-    @Column(name = "locked")
+    @Column(name = "locked",columnDefinition="ENUM('y','n')")
     private String locked;
     @Column(name = "lockdate")
     @Temporal(TemporalType.TIMESTAMP)

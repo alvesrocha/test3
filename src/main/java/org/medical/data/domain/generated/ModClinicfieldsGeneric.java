@@ -40,25 +40,25 @@ public class ModClinicfieldsGeneric implements Serializable {
     @Column(name = "lengthmax")
     private int lengthmax;
     @Basic(optional = false)
-    @Column(name = "fieldtype",columnDefinition="ENUM('date','number','alpha','alphanumeric','all','multiplechoice','dropdown','checkbox','radiobutton')")
+    @Column(name = "fieldtype",columnDefinition="enum('date','number','alpha','alphanumeric','all','multiplechoice','dropdown','checkbox','radiobutton')")
     private String fieldtype;
     @Basic(optional = false)
-    @Column(name = "fixedfieldtype",columnDefinition="ENUM('none','name','city','lang')")
+    @Column(name = "fixedfieldtype",columnDefinition="enum('none','name','city','lang')")
     private String fixedfieldtype;
     @Basic(optional = false)
     @Column(name = "additionalchar")
     private String additionalchar;
     @Basic(optional = false)
-    @Column(name = "activated",columnDefinition="ENUM('y','n')")
+    @Column(name = "activated",columnDefinition="enum('y','n')")
     private String activated;
     @Basic(optional = false)
-    @Column(name = "editable",columnDefinition="ENUM('y','n')")
+    @Column(name = "editable",columnDefinition="enum('y','n')")
     private String editable;
     @Basic(optional = false)
-    @Column(name = "searchmask",columnDefinition="ENUM('y','n')")
+    @Column(name = "searchmask",columnDefinition="enum('y','n')")
     private String searchmask;
     @Basic(optional = false)
-    @Column(name = "usetime",columnDefinition="ENUM('y','n')")
+    @Column(name = "usetime",columnDefinition="enum('y','n')")
     private String usetime;
     @Column(name = "validationexp")
     private String validationexp;

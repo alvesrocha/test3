@@ -41,32 +41,32 @@ public class ModStafffieldsGeneric implements Serializable {
     @Column(name = "lengthmax")
     private int lengthmax;
     @Basic(optional = false)
-    @Column(name = "fieldtype",columnDefinition="ENUM('date','number','alpha','alphanumeric','all','multiplechoice')")
+    @Column(name = "fieldtype",columnDefinition="enum('date','number','alpha','alphanumeric','all','multiplechoice')")
     private String fieldtype;
     @Basic(optional = false)
     @Column(name = "additionalchar")
     private String additionalchar;
     @Basic(optional = false)
-    @Column(name = "usetime")
+    @Column(name = "usetime",columnDefinition="enum('y','n')")
     private String usetime;
     @Column(name = "validationexp")
     private String validationexp;
     @Basic(optional = false)
     @Column(name = "fieldposition")
     private int fieldposition;
-    @Column(name = "fixedfieldtype",columnDefinition="ENUM('none','phone1','phone2','academicrank','title','externaluserid')")
+    @Column(name = "fixedfieldtype",columnDefinition="enum('none','phone1','phone2','academicrank','title','externaluserid')")
     private String fixedfieldtype;
     @Basic(optional = false)
-    @Column(name = "activated",columnDefinition="ENUM('y','n')")
+    @Column(name = "activated",columnDefinition="enum('y','n')")
     private String activated;
     @Basic(optional = false)
-    @Column(name = "editable",columnDefinition="ENUM('y','n')")
+    @Column(name = "editable",columnDefinition="enum('y','n')")
     private String editable;
     @Basic(optional = false)
-    @Column(name = "searchmask",columnDefinition="ENUM('y','n')")
+    @Column(name = "searchmask",columnDefinition="enum('y','n')")
     private String searchmask;
     @Basic(optional = false)
-    @Column(name = "allowvalidationdeactivation",columnDefinition="ENUM('y','n')")
+    @Column(name = "allowvalidationdeactivation",columnDefinition="enum('y','n')")
     private String allowvalidationdeactivation;
     @Basic(optional = false)
     @Column(name = "groupnumber")
@@ -75,10 +75,10 @@ public class ModStafffieldsGeneric implements Serializable {
     @Column(name = "columnspan")
     private int columnspan;
     @Basic(optional = false)
-    @Column(name = "readonly",columnDefinition="ENUM('y','n')")
+    @Column(name = "readonly",columnDefinition="enum('y','n')")
     private String readonly;
     @Basic(optional = false)
-    @Column(name = "autocomplete",columnDefinition="ENUM('y','n')")
+    @Column(name = "autocomplete",columnDefinition="enum('y','n')")
     private String autocomplete;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "modStafffields")
     private List<ModStafffieldlang> modStafffieldlangList;

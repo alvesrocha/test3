@@ -43,33 +43,33 @@ public class ModPatientfieldsGeneric implements Serializable {
     @Basic(optional = false)
     @Column(name = "lengthmax")
     private int lengthmax;
-    @Column(name = "fieldtype",columnDefinition="ENUM('date','number','alpha','alphanumeric','all','multiplechoice','dropdown','checkbox','radiobutton')")
+    @Column(name = "fieldtype",columnDefinition="enum('date','number','alpha','alphanumeric','all','multiplechoice','dropdown','checkbox','radiobutton')")
     private String fieldtype;
-    @Column(name = "fixedfieldtype",columnDefinition="ENUM('none','department','mrn','mrn2','ssn','notification','dob','lang','lang2','lang3','country','country2','gender','lastname','firstname','dischargeddate','dischargedreason','email','phone','phone2','zipcode','city','streetname','streetnumber','consent')")
+    @Column(name = "fixedfieldtype",columnDefinition="enum('none','department','mrn','mrn2','ssn','notification','dob','lang','lang2','lang3','country','country2','gender','lastname','firstname','dischargeddate','dischargedreason','email','phone','phone2','zipcode','city','streetname','streetnumber','consent')")
     private String fixedfieldtype;
     @Basic(optional = false)
     @Column(name = "additionalchar")
     private String additionalchar;
     @Basic(optional = false)
-    @Column(name = "activated",columnDefinition="ENUM('y','n')")
+    @Column(name = "activated",columnDefinition="enum('y','n')")
     private String activated;
     @Basic(optional = false)
-    @Column(name = "editable",columnDefinition="ENUM('y','n')")
+    @Column(name = "editable",columnDefinition="enum('y','n')")
     private String editable;
     @Basic(optional = false)
-    @Column(name = "searchmask",columnDefinition="ENUM('y','n')")
+    @Column(name = "searchmask",columnDefinition="enum('y','n')")
     private String searchmask;
     @Basic(optional = false)
-    @Column(name = "hashbase",columnDefinition="ENUM('y','n')")
+    @Column(name = "hashbase",columnDefinition="enum('y','n')")
     private String hashbase;
     @Basic(optional = false)
-    @Column(name = "useunspecifiedgender",columnDefinition="ENUM('y','n')")
+    @Column(name = "useunspecifiedgender",columnDefinition="enum('y','n')")
     private String useunspecifiedgender;
     @Basic(optional = false)
-    @Column(name = "usetime",columnDefinition="ENUM('y','n')")
+    @Column(name = "usetime",columnDefinition="enum('y','n')")
     private String usetime;
     @Basic(optional = false)
-    @Column(name = "allowvalidationdeactivation",columnDefinition="ENUM('y','n')")
+    @Column(name = "allowvalidationdeactivation",columnDefinition="enum('y','n')")
     private String allowvalidationdeactivation;
     @Column(name = "validationexp")
     private String validationexp;
@@ -80,25 +80,25 @@ public class ModPatientfieldsGeneric implements Serializable {
     @Column(name = "columnspan")
     private int columnspan;
     @Basic(optional = false)
-    @Column(name = "patientlist",columnDefinition="ENUM('y','n')")
+    @Column(name = "patientlist",columnDefinition="enum('y','n')")
     private String patientlist;
     @Column(name = "patientlistorder")
     private Integer patientlistorder;
     @Basic(optional = false)
-    @Column(name = "readonly",columnDefinition="ENUM('y','n')")
+    @Column(name = "readonly",columnDefinition="enum('y','n')")
     private String readonly;
     @Column(name = "generatevaluescript")
     private String generatevaluescript;
     @Column(name = "validatevaluescript")
     private String validatevaluescript;
     @Basic(optional = false)
-    @Column(name = "autocomplete",columnDefinition="ENUM('y','n')")
+    @Column(name = "autocomplete",columnDefinition="enum('y','n')")
     private String autocomplete;
     @Basic(optional = false)
-    @Column(name = "visible",columnDefinition="ENUM('y','n')")
+    @Column(name = "visible",columnDefinition="enum('y','n')")
     private String visible;
     @Basic(optional = false)
-    @Column(name = "extendedsearchmask",columnDefinition="ENUM('y','n')")
+    @Column(name = "extendedsearchmask",columnDefinition="enum('y','n')")
     private String extendedsearchmask;
     @OneToMany(mappedBy = "autocompleteparentfield")
     private List<ModPatientfields> modPatientfieldsList;

@@ -33,7 +33,7 @@ public class ModFieldoptionGeneric implements Serializable {
     @Column(name = "fieldoptionid")
     private Integer fieldoptionid;
     @Basic(optional = false)
-    @Column(name = "type",columnDefinition="ENUM('PATIENT','CLINIC','DEPT')")
+    @Column(name = "type",columnDefinition="enum('PATIENT','CLINIC','DEPT')")
     private String type;
     @Basic(optional = false)
     @Column(name = "fieldid")

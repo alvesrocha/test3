@@ -32,7 +32,7 @@ public class ModPatientpermissionGeneric implements Serializable {
     @Column(name = "patientpermissionid")
     private Integer patientpermissionid;
     @Basic(optional = false)
-    @Column(name = "permission",columnDefinition="ENUM('L','R','W','D','O')")
+    @Column(name = "permission",columnDefinition="enum('L','R','W','D','O')")
     private String permission;
     @JoinColumn(name = "patientclinicid", referencedColumnName = "patientclinicid")
     @ManyToOne(optional = false)

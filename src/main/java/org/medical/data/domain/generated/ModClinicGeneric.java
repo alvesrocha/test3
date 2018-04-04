@@ -59,19 +59,19 @@ public class ModClinicGeneric implements Serializable {
     @Temporal(TemporalType.DATE)
     private Date modified;
     @Basic(optional = false)
-    @Column(name = "patientownerpolicy",columnDefinition="ENUM('M','C','D','U')")
+    @Column(name = "patientownerpolicy",columnDefinition="enum('M','C','D','U')")
     private String patientownerpolicy;
     @Basic(optional = false)
-    @Column(name = "patientdeletepolicy",columnDefinition="ENUM('M','C','D','U')")
+    @Column(name = "patientdeletepolicy",columnDefinition="enum('M','C','D','U')")
     private String patientdeletepolicy;
     @Basic(optional = false)
-    @Column(name = "patientwritepolicy",columnDefinition="ENUM('M','C','D','U')")
+    @Column(name = "patientwritepolicy",columnDefinition="enum('M','C','D','U')")
     private String patientwritepolicy;
     @Basic(optional = false)
-    @Column(name = "patientreadpolicy",columnDefinition="ENUM('M','C','D','U')")
+    @Column(name = "patientreadpolicy",columnDefinition="enum('M','C','D','U')")
     private String patientreadpolicy;
     @Basic(optional = false)
-    @Column(name = "patientlistpolicy",columnDefinition="ENUM('M','C','D','U')")
+    @Column(name = "patientlistpolicy",columnDefinition="enum('M','C','D','U')")
     private String patientlistpolicy;
     @Basic(optional = false)
     @Column(name = "usecasenumber")

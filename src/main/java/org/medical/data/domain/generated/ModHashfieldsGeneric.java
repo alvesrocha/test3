@@ -43,7 +43,7 @@ public class ModHashfieldsGeneric implements Serializable {
     @Column(name = "hashtableprimarykeyname")
     private String hashtableprimarykeyname;
     @Basic(optional = false)
-    @Column(name = "hashtablefields",columnDefinition="ENUM('mod_applicationfields','mod_clinicfields','mod_deptfields','mod_patientfields','mod_stafffields')")
+    @Column(name = "hashtablefields",columnDefinition="enum('mod_applicationfields','mod_clinicfields','mod_deptfields','mod_patientfields','mod_stafffields')")
     private String hashtablefields;
     @Basic(optional = false)
     @Column(name = "hashmandatoryfieldids")
@@ -51,13 +51,13 @@ public class ModHashfieldsGeneric implements Serializable {
     @Column(name = "hashadditionalfieldids")
     private String hashadditionalfieldids;
     @Basic(optional = false)
-    @Column(name = "usesalt",columnDefinition="ENUM('y','n')")
+    @Column(name = "usesalt",columnDefinition="enum('y','n')")
     private String usesalt;
     @Basic(optional = false)
-    @Column(name = "recreate",columnDefinition="ENUM('y','n')")
+    @Column(name = "recreate",columnDefinition="enum('y','n')")
     private String recreate;
     @Basic(optional = false)
-    @Column(name = "activated",columnDefinition="ENUM('y','n')")
+    @Column(name = "activated",columnDefinition="enum('y','n')")
     private String activated;
 
     public ModHashfieldsGeneric() {

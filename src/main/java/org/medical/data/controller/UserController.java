@@ -28,7 +28,7 @@ public class UserController {
 		return user;
 	}
 	
-	@RequestMapping(value="/user", method = RequestMethod.GET)
+	@RequestMapping(value="/list", method = RequestMethod.GET)
     public List<ModUser> listUser(){
         return userService.findAll();
     }

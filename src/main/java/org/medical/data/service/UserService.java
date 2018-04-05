@@ -20,9 +20,9 @@ public class UserService {
 		return userRepository.save(user);
 	}
 
-	@PreAuthorize("hasRole('listusers')")
+	//@PreAuthorize("hasRole('listusers')")
 	public List<ModUser> findAll() {
-		return null;
+		return userRepository.findAll();
 	}
 
 	@PreAuthorize("hasRole('deleteuser')")

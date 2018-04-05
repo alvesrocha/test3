@@ -1,5 +1,6 @@
 package org.medical.data.config;
 
+import org.medical.data.service.UserServiceCustom;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -15,6 +16,9 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
 
 	@Autowired
 	private TokenStore tokenStore;
+	
+	@Autowired
+	private UserServiceCustom userDetailsService;
 
 	@Autowired
 	private AuthenticationManager authenticationManager;
@@ -30,6 +34,6 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
 
 	@Override
 	public void configure(AuthorizationServerEndpointsConfigurer endpoints) throws Exception {
-		endpoints.tokenStore(tokenStore).authenticationManager(authenticationManager);
+		endpoints.tokenStore(tokenStore).authenticationManager(authenticationManager).userDetailsService(userDetailsService);
 	}
 }

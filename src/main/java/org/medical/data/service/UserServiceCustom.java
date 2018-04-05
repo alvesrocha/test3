@@ -32,7 +32,7 @@ public class UserServiceCustom implements UserDetailsService {
 		Set<GrantedAuthority> authorities = new HashSet<GrantedAuthority>();
 		if (user != null) {
 			UserCustom userDetails = new UserCustom(
-					username, user.getPw(), true, !user.isExpired(), false, !user.isLocked(), authorities);
+					username, user.getPw(), true, !user.isExpired(), true, !user.isLocked(), authorities);
 			userDetails.setSalt(user.getSalt());
 			if (!user.isLocked() && user.withProfiles()) {
 				for (ModStaff staff : user.getModStaffList()) {

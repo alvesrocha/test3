@@ -7,6 +7,7 @@ package org.medical.data.domain.generated;
 
 import java.io.Serializable;
 import java.util.Date;
+
 import javax.persistence.Column;
 import javax.persistence.EmbeddedId;
 import javax.persistence.JoinColumn;
@@ -15,7 +16,12 @@ import javax.persistence.MappedSuperclass;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
-import org.medical.data.domain.source.*;
+
+import org.medical.data.domain.source.ModApplicationfielddataPK;
+import org.medical.data.domain.source.ModApplicationfields;
+import org.medical.data.domain.source.ModUser;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 /**
  *
@@ -38,6 +44,7 @@ public class ModApplicationfielddataGeneric implements Serializable {
     private ModApplicationfields modApplicationfields;
     @JoinColumn(name = "userid", referencedColumnName = "userid", insertable = false, updatable = false)
     @ManyToOne(optional = false)
+    @JsonIgnore
     private ModUser modUser;
 
     public ModApplicationfielddataGeneric() {

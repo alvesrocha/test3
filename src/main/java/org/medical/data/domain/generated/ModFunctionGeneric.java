@@ -38,9 +38,8 @@ public class ModFunctionGeneric implements Serializable {
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "functionid")
     private List<ModFunctionswitchuserallowed> modFunctionswitchuserallowedList;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "alternativefunctionid")
-    private List<ModFunctionswitchuserallowed> modFunctionswitchuserallowedList1;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "modFunction")
-    private List<ModProfilefunction> modProfilefunctionList;
+    private List<ModFunctionswitchuserallowed> modFunctionswitchuserallowedAlternativeList;
+ 
 
     public ModFunctionGeneric() {
     }
@@ -87,23 +86,16 @@ public class ModFunctionGeneric implements Serializable {
         this.modFunctionswitchuserallowedList = modFunctionswitchuserallowedList;
     }
 
-    public List<ModFunctionswitchuserallowed> getModFunctionswitchuserallowedList1() {
-        return modFunctionswitchuserallowedList1;
-    }
+    public List<ModFunctionswitchuserallowed> getModFunctionswitchuserallowedAlternativeList() {
+		return modFunctionswitchuserallowedAlternativeList;
+	}
 
-    public void setModFunctionswitchuserallowedList1(List<ModFunctionswitchuserallowed> modFunctionswitchuserallowedList1) {
-        this.modFunctionswitchuserallowedList1 = modFunctionswitchuserallowedList1;
-    }
+	public void setModFunctionswitchuserallowedAlternativeList(
+			List<ModFunctionswitchuserallowed> modFunctionswitchuserallowedAlternativeList) {
+		this.modFunctionswitchuserallowedAlternativeList = modFunctionswitchuserallowedAlternativeList;
+	}
 
-    public List<ModProfilefunction> getModProfilefunctionList() {
-        return modProfilefunctionList;
-    }
-
-    public void setModProfilefunctionList(List<ModProfilefunction> modProfilefunctionList) {
-        this.modProfilefunctionList = modProfilefunctionList;
-    }
-
-    @Override
+	@Override
     public int hashCode() {
         int hash = 0;
         hash += (functionid != null ? functionid.hashCode() : 0);

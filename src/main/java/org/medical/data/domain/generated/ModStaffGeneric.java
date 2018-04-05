@@ -7,6 +7,7 @@ package org.medical.data.domain.generated;
 
 import java.io.Serializable;
 import java.util.List;
+
 import javax.persistence.Basic;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -18,7 +19,14 @@ import javax.persistence.ManyToOne;
 import javax.persistence.MappedSuperclass;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
-import org.medical.data.domain.source.*;
+
+import org.medical.data.domain.source.ModDept;
+import org.medical.data.domain.source.ModGroupmember;
+import org.medical.data.domain.source.ModStafffielddata;
+import org.medical.data.domain.source.ModUser;
+import org.medical.data.domain.source.ModUserprofile;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 /**
  *
@@ -61,17 +69,17 @@ public class ModStaffGeneric implements Serializable {
     private String patientlistpolicy;
     @Column(name = "activated",columnDefinition="enum('y','n')")
     private String activated;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "staffid")
-    private List<ModAccessedpatient> modAccessedpatientList;
     @JoinColumn(name = "deptid", referencedColumnName = "deptid")
     @ManyToOne(optional = false)
     private ModDept deptid;
     @JoinColumn(name = "userid", referencedColumnName = "userid")
     @ManyToOne(optional = false)
+    @JsonIgnore
     private ModUser userid;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "modStaff")
     private List<ModUserprofile> modUserprofileList;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "staffid")
+    @JsonIgnore
     private List<ModGroupmember> modGroupmemberList;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "modStaff")
     private List<ModStafffielddata> modStafffielddataList;
@@ -186,14 +194,6 @@ public class ModStaffGeneric implements Serializable {
 
     public void setActivated(String activated) {
         this.activated = activated;
-    }
-
-    public List<ModAccessedpatient> getModAccessedpatientList() {
-        return modAccessedpatientList;
-    }
-
-    public void setModAccessedpatientList(List<ModAccessedpatient> modAccessedpatientList) {
-        this.modAccessedpatientList = modAccessedpatientList;
     }
 
     public ModDept getDeptid() {

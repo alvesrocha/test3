@@ -16,8 +16,6 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
-import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.MappedSuperclass;
 import javax.persistence.OneToMany;
@@ -33,6 +31,8 @@ import org.medical.data.domain.source.ModNewsletter;
 import org.medical.data.domain.source.ModPatientfields;
 import org.medical.data.domain.source.ModPermissiongroup;
 import org.medical.data.domain.source.ModUser;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 /**
  *
@@ -76,17 +76,9 @@ public class ModClinicGeneric implements Serializable {
     @Basic(optional = false)
     @Column(name = "usecasenumber")
     private String usecasenumber;
-    @JoinTable(name = "mod_clinic_newsletter", joinColumns = {
-        @JoinColumn(name = "clinicid", referencedColumnName = "clinicid")}, inverseJoinColumns = {
-        @JoinColumn(name = "newsletterid", referencedColumnName = "newsletterid")})
-    @ManyToMany
-    private List<ModNewsletter> modNewsletterList;
-    @OneToMany(mappedBy = "clinicid")
-    private List<ModPatientfields> modPatientfieldsList;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "clinicid")
+    @JsonIgnore
     private List<ModDept> modDeptList;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "modClinic")
-    private List<ModClinicfields> modClinicfieldsList;
     @JoinColumn(name = "countryid", referencedColumnName = "countryid")
     @ManyToOne(optional = false)
     private ModCountry countryid;
@@ -95,9 +87,11 @@ public class ModClinicGeneric implements Serializable {
     private ModLang langid;
     @JoinColumn(name = "permissiongroupid", referencedColumnName = "permissiongroupid")
     @ManyToOne(optional = false)
+    @JsonIgnore
     private ModPermissiongroup permissiongroupid;
     @JoinColumn(name = "modifiedby", referencedColumnName = "userid")
     @ManyToOne
+    @JsonIgnore
     private ModUser modifiedby;
 
     public ModClinicGeneric() {
@@ -206,36 +200,12 @@ public class ModClinicGeneric implements Serializable {
         this.usecasenumber = usecasenumber;
     }
 
-    public List<ModNewsletter> getModNewsletterList() {
-        return modNewsletterList;
-    }
-
-    public void setModNewsletterList(List<ModNewsletter> modNewsletterList) {
-        this.modNewsletterList = modNewsletterList;
-    }
-
-    public List<ModPatientfields> getModPatientfieldsList() {
-        return modPatientfieldsList;
-    }
-
-    public void setModPatientfieldsList(List<ModPatientfields> modPatientfieldsList) {
-        this.modPatientfieldsList = modPatientfieldsList;
-    }
-
     public List<ModDept> getModDeptList() {
         return modDeptList;
     }
 
     public void setModDeptList(List<ModDept> modDeptList) {
         this.modDeptList = modDeptList;
-    }
-
-    public List<ModClinicfields> getModClinicfieldsList() {
-        return modClinicfieldsList;
-    }
-
-    public void setModClinicfieldsList(List<ModClinicfields> modClinicfieldsList) {
-        this.modClinicfieldsList = modClinicfieldsList;
     }
 
     public ModCountry getCountryid() {

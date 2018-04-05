@@ -7,9 +7,8 @@ package org.medical.data.domain.generated;
 
 import java.io.Serializable;
 import java.util.Date;
-import java.util.List;
+
 import javax.persistence.Basic;
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -17,11 +16,15 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.MappedSuperclass;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
-import org.medical.data.domain.source.*;
+
+import org.medical.data.domain.source.ModClinic;
+import org.medical.data.domain.source.ModPermissiongroup;
+import org.medical.data.domain.source.ModUser;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 /**
  *
@@ -63,23 +66,17 @@ public class ModDeptGeneric implements Serializable {
     @Basic(optional = false)
     @Column(name = "usecasenumber")
     private String usecasenumber;
-    @OneToMany(mappedBy = "deptid")
-    private List<ModPatientfields> modPatientfieldsList;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "modDept")
-    private List<ModDeptfields> modDeptfieldsList;
     @JoinColumn(name = "clinicid", referencedColumnName = "clinicid")
     @ManyToOne(optional = false)
     private ModClinic clinicid;
     @JoinColumn(name = "permissiongroupid", referencedColumnName = "permissiongroupid")
     @ManyToOne(optional = false)
+    @JsonIgnore
     private ModPermissiongroup permissiongroupid;
     @JoinColumn(name = "modifiedby", referencedColumnName = "userid")
     @ManyToOne
+    @JsonIgnore
     private ModUser modifiedby;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "deptid")
-    private List<ModPatientclinic> modPatientclinicList;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "deptid")
-    private List<ModStaff> modStaffList;
 
     public ModDeptGeneric() {
     }
@@ -179,22 +176,6 @@ public class ModDeptGeneric implements Serializable {
         this.usecasenumber = usecasenumber;
     }
 
-    public List<ModPatientfields> getModPatientfieldsList() {
-        return modPatientfieldsList;
-    }
-
-    public void setModPatientfieldsList(List<ModPatientfields> modPatientfieldsList) {
-        this.modPatientfieldsList = modPatientfieldsList;
-    }
-
-    public List<ModDeptfields> getModDeptfieldsList() {
-        return modDeptfieldsList;
-    }
-
-    public void setModDeptfieldsList(List<ModDeptfields> modDeptfieldsList) {
-        this.modDeptfieldsList = modDeptfieldsList;
-    }
-
     public ModClinic getClinicid() {
         return clinicid;
     }
@@ -217,22 +198,6 @@ public class ModDeptGeneric implements Serializable {
 
     public void setModifiedby(ModUser modifiedby) {
         this.modifiedby = modifiedby;
-    }
-
-    public List<ModPatientclinic> getModPatientclinicList() {
-        return modPatientclinicList;
-    }
-
-    public void setModPatientclinicList(List<ModPatientclinic> modPatientclinicList) {
-        this.modPatientclinicList = modPatientclinicList;
-    }
-
-    public List<ModStaff> getModStaffList() {
-        return modStaffList;
-    }
-
-    public void setModStaffList(List<ModStaff> modStaffList) {
-        this.modStaffList = modStaffList;
     }
 
     @Override

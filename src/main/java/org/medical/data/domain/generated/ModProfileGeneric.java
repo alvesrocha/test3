@@ -36,8 +36,6 @@ public class ModProfileGeneric implements Serializable {
     @Column(name = "PERMANENT")
     private String permanent;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "modProfile")
-    private List<ModUserprofile> modUserprofileList;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "modProfile")
     private List<ModProfilefunction> modProfilefunctionList;
 
     public ModProfileGeneric() {
@@ -77,14 +75,6 @@ public class ModProfileGeneric implements Serializable {
 
     public void setPermanent(String permanent) {
         this.permanent = permanent;
-    }
-
-    public List<ModUserprofile> getModUserprofileList() {
-        return modUserprofileList;
-    }
-
-    public void setModUserprofileList(List<ModUserprofile> modUserprofileList) {
-        this.modUserprofileList = modUserprofileList;
     }
 
     public List<ModProfilefunction> getModProfilefunctionList() {

@@ -15,6 +15,8 @@ import javax.persistence.MappedSuperclass;
 import javax.persistence.Table;
 import org.medical.data.domain.source.*;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 /**
  *
  * @author alvesdarocha
@@ -33,9 +35,11 @@ public class ModFunctionswitchuserallowedGeneric implements Serializable {
     private String keepfunction;
     @JoinColumn(name = "FUNCTIONID", referencedColumnName = "FUNCTIONID")
     @ManyToOne(optional = false)
+    @JsonIgnore
     private ModFunction functionid;
     @JoinColumn(name = "ALTERNATIVEFUNCTIONID", referencedColumnName = "FUNCTIONID")
     @ManyToOne(optional = false)
+    @JsonIgnore
     private ModFunction alternativefunctionid;
 
     public ModFunctionswitchuserallowedGeneric() {

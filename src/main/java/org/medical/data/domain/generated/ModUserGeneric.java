@@ -88,46 +88,14 @@ public class ModUserGeneric implements Serializable {
     private Date lastfailedlogin;
     @Column(name = "salt")
     private String salt;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "createdby")
-    private List<ModAutomaticlogin> modAutomaticloginList;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "loginiuserid")
-    private List<ModAutomaticlogin> modAutomaticloginList1;
-    @OneToMany(mappedBy = "modifiedby")
-    private List<ModPatient> modPatientList;
-    @OneToMany(mappedBy = "modifiedbyswitchuser")
-    private List<ModPatient> modPatientList1;
-    @OneToMany(mappedBy = "modifiedby")
-    private List<ModDept> modDeptList;
     @JoinColumn(name = "langid", referencedColumnName = "langid")
     @ManyToOne
     private ModLang langid;
-    @OneToMany(mappedBy = "modifiedby")
-    private List<ModClinic> modClinicList;
-    @OneToMany(mappedBy = "createdbyswitchuser")
-    private List<ModPatientclinic> modPatientclinicList;
-    @OneToMany(mappedBy = "dischargedbyswitchuser")
-    private List<ModPatientclinic> modPatientclinicList1;
-    @OneToMany(mappedBy = "dischargedby")
-    private List<ModPatientclinic> modPatientclinicList2;
-    @OneToMany(mappedBy = "modifiedbyswitchuser")
-    private List<ModPatientclinic> modPatientclinicList3;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "createdby")
-    private List<ModPatientclinic> modPatientclinicList4;
-    @OneToMany(mappedBy = "modifiedby")
-    private List<ModPatientclinic> modPatientclinicList5;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "userid")
     private List<ModStaff> modStaffList;
-    @OneToMany(mappedBy = "createdby")
-    private List<ModPermissiongroup> modPermissiongroupList;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "modUser")
     private List<ModApplicationfielddata> modApplicationfielddataList;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "createdby")
-    private List<ModGroupmember> modGroupmemberList;
-    @OneToMany(mappedBy = "moduleadmin")
-    private List<ModModule> modModuleList;
-    @OneToMany(mappedBy = "modifiedby")
-    private List<ModModule> modModuleList1;
-
+  
     public ModUserGeneric() {
     }
 
@@ -310,108 +278,12 @@ public class ModUserGeneric implements Serializable {
         this.salt = salt;
     }
 
-    public List<ModAutomaticlogin> getModAutomaticloginList() {
-        return modAutomaticloginList;
-    }
-
-    public void setModAutomaticloginList(List<ModAutomaticlogin> modAutomaticloginList) {
-        this.modAutomaticloginList = modAutomaticloginList;
-    }
-
-    public List<ModAutomaticlogin> getModAutomaticloginList1() {
-        return modAutomaticloginList1;
-    }
-
-    public void setModAutomaticloginList1(List<ModAutomaticlogin> modAutomaticloginList1) {
-        this.modAutomaticloginList1 = modAutomaticloginList1;
-    }
-
-    public List<ModPatient> getModPatientList() {
-        return modPatientList;
-    }
-
-    public void setModPatientList(List<ModPatient> modPatientList) {
-        this.modPatientList = modPatientList;
-    }
-
-    public List<ModPatient> getModPatientList1() {
-        return modPatientList1;
-    }
-
-    public void setModPatientList1(List<ModPatient> modPatientList1) {
-        this.modPatientList1 = modPatientList1;
-    }
-
-    public List<ModDept> getModDeptList() {
-        return modDeptList;
-    }
-
-    public void setModDeptList(List<ModDept> modDeptList) {
-        this.modDeptList = modDeptList;
-    }
-
     public ModLang getLangid() {
         return langid;
     }
 
     public void setLangid(ModLang langid) {
         this.langid = langid;
-    }
-
-    public List<ModClinic> getModClinicList() {
-        return modClinicList;
-    }
-
-    public void setModClinicList(List<ModClinic> modClinicList) {
-        this.modClinicList = modClinicList;
-    }
-
-    public List<ModPatientclinic> getModPatientclinicList() {
-        return modPatientclinicList;
-    }
-
-    public void setModPatientclinicList(List<ModPatientclinic> modPatientclinicList) {
-        this.modPatientclinicList = modPatientclinicList;
-    }
-
-    public List<ModPatientclinic> getModPatientclinicList1() {
-        return modPatientclinicList1;
-    }
-
-    public void setModPatientclinicList1(List<ModPatientclinic> modPatientclinicList1) {
-        this.modPatientclinicList1 = modPatientclinicList1;
-    }
-
-    public List<ModPatientclinic> getModPatientclinicList2() {
-        return modPatientclinicList2;
-    }
-
-    public void setModPatientclinicList2(List<ModPatientclinic> modPatientclinicList2) {
-        this.modPatientclinicList2 = modPatientclinicList2;
-    }
-
-    public List<ModPatientclinic> getModPatientclinicList3() {
-        return modPatientclinicList3;
-    }
-
-    public void setModPatientclinicList3(List<ModPatientclinic> modPatientclinicList3) {
-        this.modPatientclinicList3 = modPatientclinicList3;
-    }
-
-    public List<ModPatientclinic> getModPatientclinicList4() {
-        return modPatientclinicList4;
-    }
-
-    public void setModPatientclinicList4(List<ModPatientclinic> modPatientclinicList4) {
-        this.modPatientclinicList4 = modPatientclinicList4;
-    }
-
-    public List<ModPatientclinic> getModPatientclinicList5() {
-        return modPatientclinicList5;
-    }
-
-    public void setModPatientclinicList5(List<ModPatientclinic> modPatientclinicList5) {
-        this.modPatientclinicList5 = modPatientclinicList5;
     }
 
     public List<ModStaff> getModStaffList() {
@@ -422,47 +294,15 @@ public class ModUserGeneric implements Serializable {
         this.modStaffList = modStaffList;
     }
 
-    public List<ModPermissiongroup> getModPermissiongroupList() {
-        return modPermissiongroupList;
-    }
-
-    public void setModPermissiongroupList(List<ModPermissiongroup> modPermissiongroupList) {
-        this.modPermissiongroupList = modPermissiongroupList;
-    }
-
     public List<ModApplicationfielddata> getModApplicationfielddataList() {
-        return modApplicationfielddataList;
-    }
+		return modApplicationfielddataList;
+	}
 
-    public void setModApplicationfielddataList(List<ModApplicationfielddata> modApplicationfielddataList) {
-        this.modApplicationfielddataList = modApplicationfielddataList;
-    }
+	public void setModApplicationfielddataList(List<ModApplicationfielddata> modApplicationfielddataList) {
+		this.modApplicationfielddataList = modApplicationfielddataList;
+	}
 
-    public List<ModGroupmember> getModGroupmemberList() {
-        return modGroupmemberList;
-    }
-
-    public void setModGroupmemberList(List<ModGroupmember> modGroupmemberList) {
-        this.modGroupmemberList = modGroupmemberList;
-    }
-
-    public List<ModModule> getModModuleList() {
-        return modModuleList;
-    }
-
-    public void setModModuleList(List<ModModule> modModuleList) {
-        this.modModuleList = modModuleList;
-    }
-
-    public List<ModModule> getModModuleList1() {
-        return modModuleList1;
-    }
-
-    public void setModModuleList1(List<ModModule> modModuleList1) {
-        this.modModuleList1 = modModuleList1;
-    }
-
-    @Override
+	@Override
     public int hashCode() {
         int hash = 0;
         hash += (userid != null ? userid.hashCode() : 0);

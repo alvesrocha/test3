@@ -8,6 +8,7 @@ package org.medical.data.domain.generated;
 import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
+
 import javax.persistence.Basic;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -23,7 +24,15 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
-import org.medical.data.domain.source.*;
+
+import org.medical.data.domain.source.ModCountry;
+import org.medical.data.domain.source.ModLang;
+import org.medical.data.domain.source.ModModulelang;
+import org.medical.data.domain.source.ModNewsletter;
+import org.medical.data.domain.source.ModPermissiongroup;
+import org.medical.data.domain.source.ModUser;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 /**
  *

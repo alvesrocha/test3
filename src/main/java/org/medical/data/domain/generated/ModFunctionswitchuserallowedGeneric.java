@@ -6,6 +6,7 @@
 package org.medical.data.domain.generated;
 
 import java.io.Serializable;
+
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Id;
@@ -13,9 +14,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.MappedSuperclass;
 import javax.persistence.Table;
-import org.medical.data.domain.source.*;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
+import org.medical.data.domain.source.ModFunction;
 
 /**
  *
@@ -35,11 +35,9 @@ public class ModFunctionswitchuserallowedGeneric implements Serializable {
     private String keepfunction;
     @JoinColumn(name = "FUNCTIONID", referencedColumnName = "FUNCTIONID")
     @ManyToOne(optional = false)
-    @JsonIgnore
     private ModFunction functionid;
     @JoinColumn(name = "ALTERNATIVEFUNCTIONID", referencedColumnName = "FUNCTIONID")
     @ManyToOne(optional = false)
-    @JsonIgnore
     private ModFunction alternativefunctionid;
 
     public ModFunctionswitchuserallowedGeneric() {

@@ -32,8 +32,6 @@ import org.medical.data.domain.source.ModNewsletter;
 import org.medical.data.domain.source.ModPermissiongroup;
 import org.medical.data.domain.source.ModUser;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-
 /**
  *
  * @author alvesdarocha

@@ -23,16 +23,11 @@ import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
-import org.medical.data.domain.source.ModClinicfields;
 import org.medical.data.domain.source.ModCountry;
 import org.medical.data.domain.source.ModDept;
 import org.medical.data.domain.source.ModLang;
-import org.medical.data.domain.source.ModNewsletter;
-import org.medical.data.domain.source.ModPatientfields;
 import org.medical.data.domain.source.ModPermissiongroup;
 import org.medical.data.domain.source.ModUser;
-
-import com.fasterxml.jackson.annotation.JsonIgnore;
 
 /**
  *
@@ -77,7 +72,6 @@ public class ModClinicGeneric implements Serializable {
     @Column(name = "usecasenumber")
     private String usecasenumber;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "clinicid")
-    @JsonIgnore
     private List<ModDept> modDeptList;
     @JoinColumn(name = "countryid", referencedColumnName = "countryid")
     @ManyToOne(optional = false)
@@ -87,11 +81,9 @@ public class ModClinicGeneric implements Serializable {
     private ModLang langid;
     @JoinColumn(name = "permissiongroupid", referencedColumnName = "permissiongroupid")
     @ManyToOne(optional = false)
-    @JsonIgnore
     private ModPermissiongroup permissiongroupid;
     @JoinColumn(name = "modifiedby", referencedColumnName = "userid")
     @ManyToOne
-    @JsonIgnore
     private ModUser modifiedby;
 
     public ModClinicGeneric() {

@@ -26,8 +26,6 @@ import org.medical.data.domain.source.ModStafffielddata;
 import org.medical.data.domain.source.ModUser;
 import org.medical.data.domain.source.ModUserprofile;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-
 /**
  *
  * @author alvesdarocha
@@ -74,12 +72,10 @@ public class ModStaffGeneric implements Serializable {
     private ModDept deptid;
     @JoinColumn(name = "userid", referencedColumnName = "userid")
     @ManyToOne(optional = false)
-    @JsonIgnore
     private ModUser userid;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "modStaff")
     private List<ModUserprofile> modUserprofileList;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "staffid")
-    @JsonIgnore
     private List<ModGroupmember> modGroupmemberList;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "modStaff")
     private List<ModStafffielddata> modStafffielddataList;

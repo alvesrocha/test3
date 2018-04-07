@@ -21,8 +21,6 @@ import org.medical.data.domain.source.ModApplicationfielddataPK;
 import org.medical.data.domain.source.ModApplicationfields;
 import org.medical.data.domain.source.ModUser;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-
 /**
  *
  * @author alvesdarocha
@@ -44,7 +42,6 @@ public class ModApplicationfielddataGeneric implements Serializable {
     private ModApplicationfields modApplicationfields;
     @JoinColumn(name = "userid", referencedColumnName = "userid", insertable = false, updatable = false)
     @ManyToOne(optional = false)
-    @JsonIgnore
     private ModUser modUser;
 
     public ModApplicationfielddataGeneric() {

@@ -24,8 +24,6 @@ import org.medical.data.domain.source.ModClinic;
 import org.medical.data.domain.source.ModPermissiongroup;
 import org.medical.data.domain.source.ModUser;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-
 /**
  *
  * @author alvesdarocha
@@ -71,11 +69,9 @@ public class ModDeptGeneric implements Serializable {
     private ModClinic clinicid;
     @JoinColumn(name = "permissiongroupid", referencedColumnName = "permissiongroupid")
     @ManyToOne(optional = false)
-    @JsonIgnore
     private ModPermissiongroup permissiongroupid;
     @JoinColumn(name = "modifiedby", referencedColumnName = "userid")
     @ManyToOne
-    @JsonIgnore
     private ModUser modifiedby;
 
     public ModDeptGeneric() {

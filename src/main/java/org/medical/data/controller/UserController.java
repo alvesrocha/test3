@@ -3,6 +3,7 @@ package org.medical.data.controller;
 import java.security.Principal;
 import java.util.List;
 
+import org.medical.data.domain.dto.UserDTO;
 import org.medical.data.domain.source.ModUser;
 import org.medical.data.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,8 +30,10 @@ public class UserController {
 	}
 	
 	@RequestMapping(value="/list", method = RequestMethod.GET)
-    public List<ModUser> listUser(){
-        return userService.findAll();
+    public List<UserDTO> listUser(){
+		List<UserDTO> listUser = userService.findAll();
+		System.out.println(listUser);
+        return listUser;
     }
 
     @RequestMapping(value = "/user", method = RequestMethod.POST)

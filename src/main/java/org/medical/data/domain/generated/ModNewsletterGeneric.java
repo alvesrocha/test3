@@ -44,7 +44,7 @@ public class ModNewsletterGeneric implements Serializable {
     private Date created;
     @Column(name = "complete")
     private Boolean complete;
-    @ManyToMany
+    @ManyToMany(mappedBy = "modNewsletterList")
     private List<ModClinic> modClinicList;
     @ManyToMany(mappedBy = "modNewsletterList")
     private List<ModModule> modModuleList;

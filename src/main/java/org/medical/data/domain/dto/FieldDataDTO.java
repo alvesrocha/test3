@@ -3,6 +3,19 @@ package org.medical.data.domain.dto;
 import java.io.Serializable;
 import java.util.Date;
 
+import com.fasterxml.jackson.annotation.JsonAutoDetect;
+import com.fasterxml.jackson.annotation.JsonAutoDetect.Visibility;
+
+import lombok.AllArgsConstructor;
+import lombok.EqualsAndHashCode;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
+@NoArgsConstructor
+@AllArgsConstructor
+@EqualsAndHashCode
+@JsonAutoDetect(fieldVisibility = Visibility.ANY)
 public class FieldDataDTO implements Serializable {
 
 	/**
@@ -10,34 +23,16 @@ public class FieldDataDTO implements Serializable {
 	 */
 	private static final long serialVersionUID = 1L;
 
-    private long fieldid;
-    private String charvalue;
-    private Date datevalue;
-    private FieldDTO field;
-    
-	public long getFieldid() {
-		return fieldid;
-	}
-	public void setFieldid(long fieldid) {
-		this.fieldid = fieldid;
-	}
-	public String getCharvalue() {
-		return charvalue;
-	}
-	public void setCharvalue(String charvalue) {
-		this.charvalue = charvalue;
-	}
-	public Date getDatevalue() {
-		return datevalue;
-	}
-	public void setDatevalue(Date datevalue) {
-		this.datevalue = datevalue;
-	}
-	public FieldDTO getField() {
-		return field;
-	}
-	public void setField(FieldDTO field) {
-		this.field = field;
-	}
-    
+	@Getter
+	@Setter
+	private long fieldid;
+	@Getter
+	@Setter
+	private String charvalue;
+	@Getter
+	@Setter
+	private Date datevalue;
+	@Getter
+	@Setter
+	private FieldDTO field;
 }

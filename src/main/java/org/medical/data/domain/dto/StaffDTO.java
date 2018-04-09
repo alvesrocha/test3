@@ -3,6 +3,19 @@ package org.medical.data.domain.dto;
 import java.io.Serializable;
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonAutoDetect;
+import com.fasterxml.jackson.annotation.JsonAutoDetect.Visibility;
+
+import lombok.AllArgsConstructor;
+import lombok.EqualsAndHashCode;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
+@NoArgsConstructor
+@AllArgsConstructor
+@EqualsAndHashCode
+@JsonAutoDetect(fieldVisibility = Visibility.ANY)
 public class StaffDTO implements Serializable{
 
 	/**
@@ -10,78 +23,34 @@ public class StaffDTO implements Serializable{
 	 */
 	private static final long serialVersionUID = 1L;
 
+	@Getter
+	@Setter
 	private long staffid;
+	@Getter
+	@Setter
     private String externaluserid;
+	@Getter
+	@Setter
     private String phone1;
+	@Getter
+	@Setter
     private String phone2;
+	@Getter
+	@Setter
     private String academicrank;
+	@Getter
+	@Setter
     private String title;
+	@Getter
+	@Setter
     private String activated;
+	@Getter
+	@Setter
     private long deptid;
+	@Getter
+	@Setter
     private List<ProfileDTO> profileList;
+	@Getter
+	@Setter
     private List<FieldDataDTO> staffFieldDataList;
-    
-	public long getStaffid() {
-		return staffid;
-	}
-	public void setStaffid(long staffid) {
-		this.staffid = staffid;
-	}
-	public String getExternaluserid() {
-		return externaluserid;
-	}
-	public void setExternaluserid(String externaluserid) {
-		this.externaluserid = externaluserid;
-	}
-	public String getPhone1() {
-		return phone1;
-	}
-	public void setPhone1(String phone1) {
-		this.phone1 = phone1;
-	}
-	public String getPhone2() {
-		return phone2;
-	}
-	public void setPhone2(String phone2) {
-		this.phone2 = phone2;
-	}
-	public String getAcademicrank() {
-		return academicrank;
-	}
-	public void setAcademicrank(String academicrank) {
-		this.academicrank = academicrank;
-	}
-	public String getTitle() {
-		return title;
-	}
-	public void setTitle(String title) {
-		this.title = title;
-	}
-	public String getActivated() {
-		return activated;
-	}
-	public void setActivated(String activated) {
-		this.activated = activated;
-	}
-	public long getDeptid() {
-		return deptid;
-	}
-	public void setDeptid(long deptid) {
-		this.deptid = deptid;
-	}
-	public List<ProfileDTO> getProfileList() {
-		return profileList;
-	}
-	
-	public void setProfileList(List<ProfileDTO> profileList) {
-		this.profileList = profileList;
-	}
-	
-	public List<FieldDataDTO> getStaffFieldDataList() {
-		return staffFieldDataList;
-	}
-	public void setStaffFieldDataList(List<FieldDataDTO> staffFieldDataList) {
-		this.staffFieldDataList = staffFieldDataList;
-	}
-
 }

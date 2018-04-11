@@ -34,7 +34,7 @@ public class UserServiceCustom implements UserDetailsService {
 			UserCustom userDetails = new UserCustom(
 					username, user.getPw(), true, !user.isExpired(), true, !user.isLocked(), authorities);
 			userDetails.setSalt(user.getSalt());
-			if (!user.isLocked() && user.withProfiles()) {
+			if (!user.isLocked() && user.isWithProfiles()) {
 				for (ModStaff staff : user.getModStaffList()) {
 					if (staff.isActivated()) {
 						for (ModUserprofile userProfile : staff.getModUserprofileList()) {

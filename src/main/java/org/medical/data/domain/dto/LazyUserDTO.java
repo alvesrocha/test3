@@ -20,7 +20,7 @@ import lombok.ToString;
 @EqualsAndHashCode
 @ToString
 @JsonAutoDetect(fieldVisibility = Visibility.ANY)
-public class UserDTO implements Serializable {
+public class LazyUserDTO implements Serializable {
 
 	/**
 	 * 
@@ -74,7 +74,7 @@ public class UserDTO implements Serializable {
 	private String langid;
 	@Getter
 	@Setter
-	private List<StaffDTO> staffList;
+	private boolean withProfiles;
 	@Getter
 	@Setter
 	private List<FieldDataDTO> userFieldDataList;

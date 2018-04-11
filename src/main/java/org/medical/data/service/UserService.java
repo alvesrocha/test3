@@ -1,12 +1,9 @@
 package org.medical.data.service;
 
 import java.util.List;
-import java.util.stream.Collectors;
 
-import org.medical.data.domain.dto.UserDTO;
 import org.medical.data.domain.source.ModUser;
 import org.medical.data.repository.UserRepository;
-import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Service;
@@ -17,9 +14,6 @@ public class UserService {
 	@Autowired
 	private UserRepository userRepository;
 	
-	@Autowired
-    private ModelMapper modelMapper;
-	
 	@PreAuthorize("hasRole('saveuser')")
 	public ModUser save(ModUser user) {
 		//logic here
@@ -27,10 +21,15 @@ public class UserService {
 	}
 
 	//@PreAuthorize("hasRole('listusers')")
-	public List<UserDTO> findAll() {
-		List<ModUser> users = userRepository.findAll();
-		return users.stream().map(u -> modelMapper.map(u, UserDTO.class)).collect(Collectors.toList());
+	public List<ModUser> findAll() {
+		//ModelMapper mapper = new ModelMapper();
+		return userRepository.findAll();
+		
 		//List<UserDTO> usersList = users.stream().map(mapper)
+	}
+	
+	public ModUser findByUserid(long userid) {
+		return userRepository.findByUserid(userid);
 	}
 
 	@PreAuthorize("hasRole('deleteuser')")

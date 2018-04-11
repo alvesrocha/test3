@@ -36,7 +36,7 @@ public class ModUserGeneric implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Basic(optional = false)
     @Column(name = "userid")
-    private Integer userid;
+    private Long userid;
     @Column(name = "userloginid")
     private String userloginid;
     @Basic(optional = false)
@@ -99,22 +99,22 @@ public class ModUserGeneric implements Serializable {
     public ModUserGeneric() {
     }
 
-    public ModUserGeneric(Integer userid) {
+    public ModUserGeneric(Long userid) {
         this.userid = userid;
     }
 
-    public ModUserGeneric(Integer userid, String pw, String email, String locked) {
+    public ModUserGeneric(Long userid, String pw, String email, String locked) {
         this.userid = userid;
         this.pw = pw;
         this.email = email;
         this.locked = locked;
     }
 
-    public Integer getUserid() {
+    public Long getUserid() {
         return userid;
     }
 
-    public void setUserid(Integer userid) {
+    public void setUserid(Long userid) {
         this.userid = userid;
     }
 

@@ -19,7 +19,7 @@ public class ModUser extends ModUserGeneric {
 		return "y".equals(getLocked());
 	}
 
-	public boolean withProfiles() {
+	public boolean isWithProfiles() {
 		for (ModStaff staff : getModStaffList()) {
 			if (staff.isActivated()) {
 				for (ModUserprofile userProfile : staff.getModUserprofileList()) {
